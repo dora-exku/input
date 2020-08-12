@@ -1,0 +1,17 @@
+{
+  "Id": "ID",
+  "Created at":"创建时间",
+  "Updated at":"更新时间",
+  "name":"名字",
+  "email":"邮箱",
+  "Fullname": "姓名",
+  "Id card": "身份证号",
+  "Phone": "手机号",
+  "Remark": "备注",
+  "Input ip": "IP地址",
+  "No": "订单号",
+  "Total amount": "订单金额",
+  "Paid at": "支付时间",
+  "Payment method": "支付方式",
+  "Payment no": "流水号"
+}
