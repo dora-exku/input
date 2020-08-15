@@ -14,15 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return '';
+    return redirect()->route('input.create');
 })->name('root');
 
 Route::get('/do/{key?}', function ($key) {
     // 限制只能扫码打开
-    if ($key === '1782bd51de4080388a4bffe495f2695d') {
-        \Illuminate\Support\Facades\Cache::add('qrcode.' . request()->ip(), 1);
-        return redirect()->route('input.create');
-    }
+//    if ($key === '1782bd51de4080388a4bffe495f2695d') {
+//        \Illuminate\Support\Facades\Cache::add('qrcode.' . request()->ip(), 1);
+//        return redirect()->route('input.create');
+//    }
     return '';
 })->name('do');
 

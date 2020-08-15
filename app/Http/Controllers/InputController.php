@@ -27,9 +27,9 @@ class InputController extends Controller
      */
     public function create(Request $request)
     {
-        if (Cache::get('qrcode.' . $request->ip()) != 1) {
-            return redirect()->route('root');
-        }
+//        if (Cache::get('qrcode.' . $request->ip()) != 1) {
+//            return redirect()->route('root');
+//        }
 
         return view('input.create', [
             'input' => new Input(),
