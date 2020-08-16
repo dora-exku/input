@@ -18,3 +18,6 @@ DB_PASSWORD=secret       数据库密码
 5、访问 `域名/admin` 进入后台 默认账号密码为`admin`
 
 6、nginx项目运行目录指向`public`
+
+### 为后台创建一个管理员用户
+1、使用命令 `php artisan tinker` 进入

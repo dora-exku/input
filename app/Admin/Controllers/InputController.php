@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Admin\Extensions\InputsExporter;
 use App\Models\Input;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
@@ -41,6 +42,9 @@ class InputController extends AdminController
 //        $grid->column('payment_no', __('Payment no'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
+
+        // 定义导出类
+        $grid->exporter(new InputsExporter());
 
         return $grid;
     }
