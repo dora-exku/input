@@ -19,6 +19,8 @@ class PayController extends Controller
 //            'total_fee' => $info->total_amount * 100,
 //            'openid' => $request->session()->get('openid')['openid'],
 //        ]);
+        $config = $wechatService->getJssdkConfig();
+        var_dump($config);die;
         return view('pay.view', [
             'info' => $result ?? [],
             'order' => $info,
