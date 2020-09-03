@@ -23,6 +23,7 @@ class PayController extends Controller
 //            'total_fee' => $info->total_amount * 100,
             'total_fee' => 1,
             'openid' => $request->session()->get('openid')['openid'],
+            'notify_url' => route('pay.notify')
         ]);
         return view('pay.view', [
             'info' => $result ?? [],
