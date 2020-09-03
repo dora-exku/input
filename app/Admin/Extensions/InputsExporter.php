@@ -3,8 +3,9 @@ namespace App\Admin\Extensions;
 
 use App\Models\Input;
 use Encore\Admin\Grid\Exporters\ExcelExporter;
+use Maatwebsite\Excel\Concerns\WithMapping;
 
-class InputsExporter extends ExcelExporter
+class InputsExporter extends ExcelExporter implements WithMapping
 {
     protected $fileName = '数据列表.xlsx';
 
@@ -21,7 +22,7 @@ class InputsExporter extends ExcelExporter
         'created_at' => '录入时间'
     ];
 
-    public function map($data)
+    public function map($data): array
     {
         return [
             $data->id,
