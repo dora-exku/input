@@ -30,21 +30,41 @@
              <input type="hidden" name="payment_method" value="wechat">
              <input type="hidden" name="total_amount" value="300">
              <div class="form-group">
-                 <label for="firstname" class="col-sm-2 control-label">姓名</label>
+                 <label for="firstname" class="col-sm-2 control-label">学生姓名</label>
                  <div class="col-sm-10">
-                     <input type="text" class="form-control" name="fullname" placeholder="请输入姓名" requiredd>
+                     <input type="text" class="form-control" name="fullname" placeholder="请输入学生姓名" requiredd>
                  </div>
              </div>
              <div class="form-group">
-                 <label for="lastname" class="col-sm-2 control-label">身份证号</label>
+                 <label for="lastname" class="col-sm-2 control-label">学生身份证号</label>
                  <div class="col-sm-10">
-                     <input type="text" class="form-control" name="id_card" placeholder="请输入正确的身份证号" requiredd>
+                     <input type="text" class="form-control" name="id_card" placeholder="请输入正确的学生身份证号" requiredd>
                  </div>
              </div>
              <div class="form-group">
-                 <label class="col-sm-2 control-label">手机号码</label>
+                 <label class="col-sm-2 control-label">家长手机号码</label>
                  <div class="col-sm-10">
-                     <input type="text" class="form-control" name="phone" placeholder="请输入正确的手机号码" requiredd>
+                     <input type="text" class="form-control" name="phone" placeholder="请输入正确的家长手机号码" requiredd>
+                 </div>
+             </div>
+             <div class="form-group">
+                 <label class="col-sm-2 control-label">学生年级</label>
+                 <div class="col-sm-10">
+                     <select name="class_number_parent" id="class_number_parent">
+                         @foreach($class_number_parent as $k => $v)
+                             <option value="{{ $k }}">{{ $v }}</option>
+                         @endforeach
+                     </select>
+                 </div>
+             </div>
+             <div class="form-group">
+                 <label class="col-sm-2 control-label">学生班级</label>
+                 <div class="col-sm-10">
+                     <select name="class_number_child" id="class_number_child">
+                         @foreach($class_number_child as $k => $v)
+                             <option value="{{ $k }}">{{ $v }}</option>
+                         @endforeach
+                     </select>
                  </div>
              </div>
              <div class="form-group">
@@ -66,7 +86,7 @@
              <div class="form-group">
                  <label class="col-sm-2"></label>
                  <div class="col-sm-10">
-                     <button type="submit" class="btn btn-block btn-primary">提交</button>
+                     <button type="submit" class="btn btn-block btn-primary">提交 需支付(<span id="price">300</span>)</button>
                  </div>
              </div>
          </form>
@@ -75,18 +95,11 @@
  </body>
  </html>
 <script>
-    function onBridgeReady() {
-        WeixinJSBridge.call('hideOptionMenu');
-    }
+    var price = {{ json_encode($price) }};
 
-    if (typeof WeixinJSBridge == "undefined") {
-        if (document.addEventListener) {
-            document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
-        } else if (document.attachEvent) {
-            document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
-            document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
-        }
-    } else {
-        onBridgeReady();
-    }
+    $('#class_number_parent').on('change', function () {
+        var $val = $('#class_number_parent:selected').val();
+        $('input[name="total_amount"]').val($val);
+        console.log($val);
+    });
 </script>
