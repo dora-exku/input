@@ -9,11 +9,14 @@ class InputsExporter extends ExcelExporter
 
     protected $columns = [
         'id' =>' ID',
+        'class_number_parent' => '年级',
+        'class_number_child' => '班级',
         'fullname' => '姓名',
         'id_card' => '身份证号',
         'phone' => '手机号',
         'remark' => '备注',
         'total_amount' => '支付金额',
+        'paid_at' => '支付时间',
         'created_at' => '录入时间'
     ];
 }
