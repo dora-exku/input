@@ -102,4 +102,8 @@
         $('input[name="total_amount"]').val(price[$val]);
         console.log($val);
     });
+
+    $('form').on('submit', function () {
+        return confirm('请确认您输入的信息是否正确? ');
+    });
 </script>
