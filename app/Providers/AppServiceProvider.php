@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
         //扩展身份证验证规则
         Validator::extend('identitycards', function($attribute, $value, $parameters) {
             $dl = '/^\d{6}(18|19|20)?\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d{3}(\d|[xX])$/';
-            $xg = '/^((\s?[A-Za-z])|([A-Za-z]{2}))\d{6}(\([0−9aA]\)|[0-9aA])$/';
+            $xg = '/^((\s?[A-Za-z])|([A-Za-z]{2}))\d{6}(([0−9aA])|([0-9aA]))$/';
             $tw = '/^[a-zA-Z][0-9]{9}$/';
             $am = '/^[1|5|7][0-9]{6}\([0-9Aa]\)/';
             return preg_match($dl, $value) || preg_match($xg, $value) || preg_match($tw, $value) || preg_match($am, $value);
