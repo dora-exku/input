@@ -14,6 +14,9 @@ class PayController extends Controller
     {
         $wechatService = new WechatService();
         $info = Input::query()->where('no', $order)->first();
+        Pay::wechat()->close([
+            'put_trade_no' => $order
+        ]);
         $result = Pay::wechat()->mp([
             'out_trade_no' => $order,
             'body' => '学生意外险',
