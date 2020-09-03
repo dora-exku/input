@@ -86,7 +86,7 @@
              <div class="form-group">
                  <label class="col-sm-2"></label>
                  <div class="col-sm-10">
-                     <button type="submit" class="btn btn-block btn-primary">提交 需支付(<span id="price">300</span>)</button>
+                     <button type="submit" class="btn btn-block btn-primary">提交</button>
                  </div>
              </div>
          </form>
@@ -98,8 +98,8 @@
     var price = @json($price);
 
     $('#class_number_parent').on('change', function () {
-        var $val = $('#class_number_parent:selected').val();
-        $('input[name="total_amount"]').val($val);
+        var $val = $(this).val();
+        $('input[name="total_amount"]').val(price[$val]);
         console.log($val);
     });
 </script>
