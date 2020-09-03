@@ -12,12 +12,13 @@ class PayController extends Controller
     {
         $order = $request->get('order');
         $info = Input::query()->where('no', $order)->first();
-        Pay::wechat()->mp([
-            'out_trade_no' => time(),
-            'body' => 'subject-测试',
-            'total_fee'      => '1',
-            'openid' => 'onkVf1FjWS5SBIixxxxxxxxx',
+        $result = Pay::wechat()->mp([
+            'out_trade_no' => $order,
+            'body' => '学平险缴费',
+            'total_fee' => $order->total_amount,
+            'openid' => cookie('oi')->getValue(),
         ]);
+        var_dump($result);
     }
 
     public function notify()

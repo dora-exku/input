@@ -3,6 +3,7 @@ namespace App\Services;
 
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Cache;
+use mysql_xdevapi\Exception;
 
 class WechatService
 {
@@ -27,7 +28,7 @@ class WechatService
             if (isset($result_arr['access_token'])) {
                 return $result_arr['access_token'];
             } else {
-                throw new \HttpException('获取access token失败' . $result);
+                throw new \Exception('获取access token失败' . $result);
             }
         });
         return $accessToken;
@@ -47,7 +48,7 @@ class WechatService
                 'access_token' => $result_arr['access_token']
             ];
         } else {
-            throw new \HttpException('获取access_token失败');
+            throw new \Exception('获取access_token失败');
         }
     }
 
