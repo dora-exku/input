@@ -75,7 +75,9 @@ class InputController extends Controller
             'phone',
             'remark',
             'payment_method',
-            'total_amount'
+            'total_amount',
+            'class_number_parent',
+            'class_number_child',
         ]));
 
         return redirect()->route('pay.view', ['order' => $inputRequest->validationData()['no']]);
