@@ -38,7 +38,7 @@ class WechatService
     {
         $url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid='
             . $this->option['appid']
-            . '&secret=' . $this->option['secret'] . '&code=CODE&grant_type=authorization_code';
+            . '&secret=' . $this->option['secret'] . '&code='.$code.'&grant_type=authorization_code';
 
         $result = $this->client->get($url)->getBody()->getContents();
         $result_arr = json_decode($result, true);
