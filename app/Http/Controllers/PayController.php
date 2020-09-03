@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Input;
 use Illuminate\Http\Request;
-use Yansongda\Pay\Pay;
+use Pay;
 
 class PayController extends Controller
 {
@@ -15,8 +15,8 @@ class PayController extends Controller
         $result = Pay::wechat()->mp([
             'out_trade_no' => $order,
             'body' => '学生意外险',
-            'total_fee' => $order->total_amount,
-            'openid' => cookie('oi')->getValue(),
+            'total_fee' => $info->total_amount,
+            'openid' => $request->session()->get('openid'),
         ]);
         var_dump($result);
     }
