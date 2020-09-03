@@ -50,7 +50,7 @@
              <div class="form-group">
                  <label class="col-sm-2 control-label">学生年级</label>
                  <div class="col-sm-10">
-                     <select name="class_number_parent" id="class_number_parent">
+                     <select name="class_number_parent" id="class_number_parent" class="form-control">
                          @foreach($class_number_parent as $k => $v)
                              <option value="{{ $k }}">{{ $v }}</option>
                          @endforeach
@@ -60,7 +60,7 @@
              <div class="form-group">
                  <label class="col-sm-2 control-label">学生班级</label>
                  <div class="col-sm-10">
-                     <select name="class_number_child" id="class_number_child">
+                     <select name="class_number_child" id="class_number_child" class="form-control">
                          @foreach($class_number_child as $k => $v)
                              <option value="{{ $k }}">{{ $v }}</option>
                          @endforeach
