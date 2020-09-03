@@ -20,8 +20,8 @@ class PayController extends Controller
         $result = Pay::wechat()->mp([
             'out_trade_no' => $order,
             'body' => '学生意外险',
-//            'total_fee' => $info->total_amount * 100,
-            'total_fee' => 1,
+            'total_fee' => $info->total_amount * 100,
+//            'total_fee' => 1,
             'openid' => $request->session()->get('openid')['openid'],
             'notify_url' => route('pay.notify')
         ]);
