@@ -48,7 +48,7 @@ class WechatService
                 'access_token' => $result_arr['access_token']
             ];
         } else {
-            throw new \Exception('获取access_token失败');
+            throw new \Exception('获取access_token失败' . $result);
         }
     }
 
