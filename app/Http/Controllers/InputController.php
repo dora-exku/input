@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\InputRequest;
 use App\Models\Input;
+use App\Services\WechatService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
@@ -25,12 +26,14 @@ class InputController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create(Request $request, WechatService $wechatService)
     {
 //        if (Cache::get('qrcode.' . $request->ip()) != 1) {
 //            return redirect()->route('root');
 //        }
-
+        // 检查openid是否存在
+        $openid = cookie('oi')->getValue();
+        if (is_null($openid)) $wechatService->getAuthUrl();
         return view('input.create', [
             'input' => new Input(),
             'no' => time() . rand(100000, 999999),
@@ -53,7 +56,8 @@ class InputController extends Controller
             'id_card',
             'phone',
             'remark',
-            'payment_method'
+            'payment_method',
+            'total_amount'
         ]));
 
         return redirect()->route('input.index');

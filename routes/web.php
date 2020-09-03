@@ -32,3 +32,7 @@ Route::get('/input', 'InputController@index')->name('input.index');
 Route::get('/input/create', 'InputController@create')->name('input.create');
 // 提交
 Route::post('/input', 'InputController@store')->name('input.store');
+// 支付
+ROute::get('/pay/view', 'PayController@view')->name('pay.view');
+// 支付回调
+Route::post('/pay/notify', 'PayController@notify')->name('pay.notify');

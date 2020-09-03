@@ -31,6 +31,5 @@ class AppServiceProvider extends ServiceProvider
         Validator::extend('telphone', function($attribute, $value, $parameters) {
             return preg_match('/^1[34578][0-9]{9}$/', $value);
         });
-
     }
 }

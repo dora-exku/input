@@ -27,7 +27,8 @@
              {{ csrf_field() }}
              <input type="hidden" name="input_ip" value="{{ $input_ip }}">
              <input type="hidden" name="no" value="{{ $no }}">
-             <input type="hidden" name="payment_method" value="cash">
+             <input type="hidden" name="payment_method" value="wechat">
+             <input type="hidden" name="total_amount" value="300">
              <div class="form-group">
                  <label for="firstname" class="col-sm-2 control-label">姓名</label>
                  <div class="col-sm-10">
@@ -49,7 +50,7 @@
              <div class="form-group">
                  <label class="col-sm-2 control-label">备注</label>
                  <div class="col-sm-10">
-                     <textarea name="remark" id="remark" cols="30" rows="2" class="form-control" placeholder="请输入备注内容，没有可不填"></textarea>
+                     <textarea name="remark" id="remark" cols="30" rows="2" class="form-control">请输入备注内容，没有可不填</textarea>
                  </div>
              </div>
 {{--             <div class="form-group">--}}

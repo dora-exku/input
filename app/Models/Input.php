@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Input extends Model
 {
     use DefaultDatetimeFormat;
-    protected $fillable = ['no', 'input_ip', 'fullname', 'id_card', 'phone', 'remark', 'payment_method'];
+    protected $fillable = ['no', 'input_ip', 'fullname', 'id_card', 'phone', 'remark', 'payment_method', 'total_amount'];
 
     const PAYMENT_METHOD_CASH = 'cash';
 

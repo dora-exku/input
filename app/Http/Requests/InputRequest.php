@@ -32,6 +32,7 @@ class InputRequest extends FormRequest
                     'payment_method' => 'required|in:cash,wechat,alipay',
                     'no' => 'required',
                     'input_ip' => 'required',
+                    'total_amount' => 'required|in:300,100,200'
                 ];
             default :
                 return [];
@@ -50,6 +51,8 @@ class InputRequest extends FormRequest
             'payment_method.in' => '支付方式错误',
             'no.required' => '参数错误',
             'input_ip.required' => '参数错误',
+            'total_amount.require' => '参数错误',
+            'total_amount.in' => '参数错误'
         ];
     }
 }
