@@ -14,16 +14,16 @@
 <div class="container">
     <div class="content" style="margin-top:20px;">
         @if (count($errors) > 0)
-            <div class="alert alert-danger">
-                <h4>有错误发生：</h4>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li><i class="glyphicon glyphicon-remove"></i> {{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
+        <div class="alert alert-danger">
+            <h4>有错误发生：</h4>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li><i class="glyphicon glyphicon-remove"></i> {{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
         @endif
-         <form class="form-horizontal" role="form" action="{{ route('input.store') }}" method="post">
+        <form class="form-horizontal" role="form" action="{{ route('input.store') }}" method="post">
              {{ csrf_field() }}
              <input type="hidden" name="input_ip" value="{{ $input_ip }}">
              <input type="hidden" name="no" value="{{ $no }}">
@@ -89,13 +89,13 @@
                      <button type="submit" class="btn btn-block btn-primary">提交</button>
                  </div>
              </div>
-             <div class="form-group">
-                 <div class="alert alert-info">
-                     保险服务经理: 林经理 <br>
-                     联系电话: <a href="tel:13652759099">13652759099[点击拨打]</a>
-                 </div>
-             </div>
          </form>
+        <div class="form-group">
+            <div class="alert alert-info">
+                保险服务经理: 林经理 <br>
+                联系电话: <a href="tel:13652759099">13652759099[点击拨打]</a>
+            </div>
+        </div>
      </div>
  </div>
  </body>
