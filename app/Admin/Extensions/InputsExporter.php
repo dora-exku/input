@@ -1,6 +1,7 @@
 <?php
 namespace App\Admin\Extensions;
 
+use App\Models\Input;
 use Encore\Admin\Grid\Exporters\ExcelExporter;
 
 class InputsExporter extends ExcelExporter
@@ -19,6 +20,22 @@ class InputsExporter extends ExcelExporter
         'paid_at' => '支付时间',
         'created_at' => '录入时间'
     ];
+
+    public function map($data)
+    {
+        return [
+            $data->id,
+            Input::CLASS_NUMBER_PARENT[$data->class_number_parent] ?? '-',
+            Input::CLASS_NUMBER_CHILD[$data->class_number_child] ?? '-',
+            $data->fullname,
+            $data->id_card,
+            $data->phone,
+            $data->remark,
+            $data->total_amount,
+            $data->paid_at,
+            $data->created_at
+        ];
+    }
 }
 
 

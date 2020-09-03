@@ -42,7 +42,7 @@ class InputController extends AdminController
         $grid->column('class_number_parent', "年级")->display(function($val) {
             return Input::CLASS_NUMBER_PARENT[$val] ?? '-';
         });
-        $grid->column('class_number_parent', "班级")->display(function($val) {
+        $grid->column('class_number_child', "班级")->display(function($val) {
             return Input::CLASS_NUMBER_CHILD[$val] ?? '-';
         });
 //        $grid->column('payment_no', __('Payment no'));
