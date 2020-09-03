@@ -95,7 +95,7 @@
  </body>
  </html>
 <script>
-    var price = {{ json_encode($price) }};
+    var price = @json($price);
 
     $('#class_number_parent').on('change', function () {
         var $val = $('#class_number_parent:selected').val();

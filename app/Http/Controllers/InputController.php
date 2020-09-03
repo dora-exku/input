@@ -19,18 +19,7 @@ class InputController extends Controller
     public function index()
     {
 
-        return view('input.index', [
-            'class_number_parent' => Input::CLASS_NUMBER_PARENT,
-            'class_number_child' => Input::CLASS_NUMBER_CHILD,
-            'price' => [
-                1 => 300,
-                2 => 200,
-                3 => 100,
-                4 => 300,
-                5 => 200,
-                6 => 100,
-            ]
-        ]);
+        return view('input.index');
     }
 
     /**
@@ -55,7 +44,17 @@ class InputController extends Controller
         return view('input.create', [
             'input' => new Input(),
             'no' => time() . rand(100000, 999999),
-            'input_ip' => ip2long(\request()->ip())
+            'input_ip' => ip2long(\request()->ip()),
+            'class_number_parent' => Input::CLASS_NUMBER_PARENT,
+            'class_number_child' => Input::CLASS_NUMBER_CHILD,
+            'price' => [
+                1 => 300,
+                2 => 200,
+                3 => 100,
+                4 => 300,
+                5 => 200,
+                6 => 100,
+            ]
         ]);
     }
 
