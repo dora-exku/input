@@ -47,6 +47,10 @@
         .btn{
             border-radius: 2px;
         }
+
+        .alert{
+            border-radius: 2px;
+        }
 </style>
 </head>
 <body>
