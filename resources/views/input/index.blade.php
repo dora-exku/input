@@ -13,7 +13,7 @@
 <body>
 <div class="container">
     <div class="content" style="margin-top:20px;font-size: 28px;">
-        <div class="alert alert-success text-center"><i class="glyphicon glyphicon-ok"></i> 录入成功！</div>
+        <div class="alert alert-success text-center"><i class="glyphicon glyphicon-ok"></i> 投保办理成功！</div>
     </div>
 </div>
 </body>
