@@ -27,7 +27,7 @@ class InputRequest extends FormRequest
             case 'POST':
                 return [
                     'fullname' => 'required',
-                    'id_card' => 'required',
+                    'id_card' => 'required|identitycards',
                     'phone' => 'required|telphone',
                     'payment_method' => 'required|in:cash,wechat,alipay',
                     'no' => 'required',
@@ -46,6 +46,7 @@ class InputRequest extends FormRequest
         return [
             'fullname.required' => '请输入姓名',
             'id_card.required' => '请输入身份证号',
+            'id_card.identitycards' => '请输入正确的身份证号',
             'phone.required' => '请输入手机号',
             'phone.telphone' => '请输入正确的手机号',
             'payment_method.required' => '支付方式错误',
