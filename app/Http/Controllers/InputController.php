@@ -67,7 +67,7 @@ class InputController extends Controller
             'total_amount'
         ]));
 
-        return redirect()->route('input.index');
+        return redirect()->route('pay.view', ['order' => $inputRequest->validationData()['no']]);
     }
 
     /**

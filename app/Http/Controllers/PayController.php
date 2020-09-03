@@ -8,9 +8,8 @@ use Pay;
 
 class PayController extends Controller
 {
-    public function view(Request $request)
+    public function view(Request $request, $order)
     {
-        $order = $request->get('order');
         $info = Input::query()->where('no', $order)->first();
         $result = Pay::wechat()->mp([
             'out_trade_no' => $order,
