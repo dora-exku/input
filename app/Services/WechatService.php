@@ -84,7 +84,7 @@ class WechatService
             'timestamp' => time(),
             'url' => request()->fullUrl()
         ];
-        sort($param);
+        ksort($param);
         $param['signature'] = sha1(urldecode(http_build_query($param)));
         $param['appid'] = $this->option['appid'];
         return $param;
