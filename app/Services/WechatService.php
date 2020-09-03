@@ -53,7 +53,7 @@ class WechatService
 
     public function getAuthUrl($callurl = null)
     {
-        $callurl = is_null($callurl) && request()->url();
+        $callurl = is_null($callurl) ? request()->url() : $callurl;
         $url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='
             . $this->option['appid']
             . '&redirect_uri=' . urlencode($callurl) . '&response_type=code&scope=snsapi_base&state=code#wechat_redirect';
