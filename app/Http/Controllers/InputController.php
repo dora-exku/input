@@ -33,7 +33,13 @@ class InputController extends Controller
 //        }
         // 检查openid是否存在
         $openid = cookie('oi')->getValue();
-        if (is_null($openid)) $wechatService->getAuthUrl();
+        $code = $request->get('code', null);
+        if (is_null($openid) && is_null($code)) {
+            $wechatService->getAuthUrl();
+        } else if (!is_null($code)) {
+            $openid = $wechatService->getUserAccessToken($code);
+            cookie('oi', $openid);
+        }
         return view('input.create', [
             'input' => new Input(),
             'no' => time() . rand(100000, 999999),
