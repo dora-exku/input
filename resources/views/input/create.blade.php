@@ -89,6 +89,12 @@
                      <button type="submit" class="btn btn-block btn-primary">提交</button>
                  </div>
              </div>
+             <div class="form-group">
+                 <div class="alert alert-info">
+                     保险服务经理: 林经理 <br>
+                     联系电话: <a href="tel:13652759099">13652759099[点击拨打]</a>
+                 </div>
+             </div>
          </form>
      </div>
  </div>
