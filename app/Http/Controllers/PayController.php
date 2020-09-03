@@ -14,7 +14,7 @@ class PayController extends Controller
         $info = Input::query()->where('no', $order)->first();
         $result = Pay::wechat()->mp([
             'out_trade_no' => $order,
-            'body' => '学平险缴费',
+            'body' => '学生意外险',
             'total_fee' => $order->total_amount,
             'openid' => cookie('oi')->getValue(),
         ]);

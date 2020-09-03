@@ -7,6 +7,7 @@ use App\Models\Input;
 use App\Services\WechatService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Cookie;
 
 class InputController extends Controller
 {
@@ -38,7 +39,7 @@ class InputController extends Controller
             $wechatService->getAuthUrl();
         } else if (!is_null($code)) {
             $openid = $wechatService->getUserAccessToken($code);
-            cookie('oi', $openid);
+            response()->cookie(cookie('oi', $openid));
         }
         return view('input.create', [
             'input' => new Input(),
