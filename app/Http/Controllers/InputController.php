@@ -37,7 +37,7 @@ class InputController extends Controller
         $code = $request->get('code', null);
         if (is_null($openid) && is_null($code)) {
             $wechatService->getAuthUrl();
-        } else if (!is_null($code)) {
+        } else if (!is_null($code) && is_null($openid)) {
             $openid = $wechatService->getUserAccessToken($code);
             $request->session()->put('openid', $openid);
         }

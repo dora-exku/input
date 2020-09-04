@@ -14,6 +14,10 @@
 <div class="container">
     <div class="content" style="margin-top:20px;font-size: 28px;">
         <div class="alert alert-success text-center"><i class="glyphicon glyphicon-ok"></i> 投保办理成功！</div>
+        <div class="alert alert-info">
+            支付凭证详情可以前往 <span style="color:red;">微信支付-账单详情</span> 里查看
+            客服微信：<span style="color:red;">15507734586</span>
+        </div>
     </div>
 </div>
 </body>
