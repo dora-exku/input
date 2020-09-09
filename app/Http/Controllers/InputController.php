@@ -62,6 +62,12 @@ class InputController extends Controller
                 4 => 300,
                 5 => 200,
                 6 => 100,
+                7 => 300,
+                8 => 200,
+                9 => 100,
+                10 => 300,
+                11 => 200,
+                12 => 100,
             ],
             'school' => $school
         ]);
