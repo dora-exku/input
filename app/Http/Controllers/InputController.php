@@ -86,6 +86,7 @@ class InputController extends Controller
             'total_amount',
             'class_number_parent',
             'class_number_child',
+            'school_id'
         ]));
 
         return redirect()->route('pay.view', ['order' => $inputRequest->validationData()['no']]);
