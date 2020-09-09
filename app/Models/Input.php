@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Input extends Model
 {
     use DefaultDatetimeFormat;
-    protected $fillable = ['no', 'input_ip', 'fullname', 'id_card', 'phone', 'remark', 'payment_method', 'total_amount', 'class_number_parent', 'class_number_child'];
+    protected $fillable = ['no', 'input_ip', 'fullname', 'id_card', 'phone', 'remark', 'payment_method', 'total_amount', 'class_number_parent', 'class_number_child', 'school_id'];
 
     const PAYMENT_METHOD_CASH = 'cash';
 
@@ -63,4 +63,9 @@ class Input extends Model
         29 => '二十九班',
         30 => '三十班',
     ];
+
+    public function school()
+    {
+        return $this->belongsTo(School::class);
+    }
 }

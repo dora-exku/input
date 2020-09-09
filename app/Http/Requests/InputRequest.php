@@ -35,6 +35,7 @@ class InputRequest extends FormRequest
                     'total_amount' => 'required|in:300,100,200',
                     'class_number_parent' => 'required',
                     'class_number_child' => 'required',
+                    'school_id' => 'required|exists:schools,id'
                 ];
             default :
                 return [];
@@ -57,6 +58,8 @@ class InputRequest extends FormRequest
             'total_amount.in' => '参数错误',
             'class_number_parent.require' => '参数错误',
             'class_number_child.require' => '参数错误',
+            'school_id.required' => '学校信息错误，请重新扫码',
+            'school_id.exists' => '学校信息错误，请重新扫码'
         ];
     }
 }

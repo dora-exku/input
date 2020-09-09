@@ -75,6 +75,13 @@
                 <input type="hidden" name="no" value="{{ $no }}">
                 <input type="hidden" name="payment_method" value="wechat">
                 <input type="hidden" name="total_amount" value="300">
+                <input type="hidden" name="school_id" value="{{ $school->id }}">
+                <div class="form-group">
+                    <label for="" class="col-sm-2 control-label">学校</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" disabled value="{{ $school->name }}">
+                    </div>
+                </div>
                 <div class="form-group">
                     <label for="firstname" class="col-sm-2 control-label">学生姓名</label>
                     <div class="col-sm-10">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\InputRequest;
 use App\Models\Input;
+use App\Models\School;
 use App\Services\WechatService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -33,14 +34,22 @@ class InputController extends Controller
 //            return redirect()->route('root');
 //        }
         // 检查openid是否存在
-        $openid = $request->session()->get('openid');
-        $code = $request->get('code', null);
-        if (is_null($openid) && is_null($code)) {
-            $wechatService->getAuthUrl();
-        } else if (!is_null($code) && is_null($openid)) {
-            $openid = $wechatService->getUserAccessToken($code);
-            $request->session()->put('openid', $openid);
+//        $openid = $request->session()->get('openid');
+//        $code = $request->get('code', null);
+//        if (is_null($openid) && is_null($code)) {
+//            $wechatService->getAuthUrl();
+//        } else if (!is_null($code) && is_null($openid)) {
+//            $openid = $wechatService->getUserAccessToken($code);
+//            $request->session()->put('openid', $openid);
+//        }
+
+        $schoolId = $request->get('school_id', 0);
+        if ($schoolId === 0) {
+            $schoolId = School::getDefaultId();
         }
+
+        $school = School::query()->find($schoolId)->first();
+
         return view('input.create', [
             'input' => new Input(),
             'no' => time() . rand(100000, 999999),
@@ -54,7 +63,8 @@ class InputController extends Controller
                 4 => 300,
                 5 => 200,
                 6 => 100,
-            ]
+            ],
+            'school' => $school
         ]);
     }
 

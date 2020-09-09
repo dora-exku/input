@@ -28,6 +28,7 @@ class InputController extends AdminController
         $grid = new Grid(new Input());
 
         $grid->column('id', __('Id'));
+        $grid->column('school.name', '学校');
         $grid->column('fullname', __('Fullname'));
         $grid->column('id_card', __('Id card'));
         $grid->column('phone', __('Phone'));

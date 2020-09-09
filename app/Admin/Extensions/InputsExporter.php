@@ -2,6 +2,7 @@
 namespace App\Admin\Extensions;
 
 use App\Models\Input;
+use App\Models\School;
 use Encore\Admin\Grid\Exporters\ExcelExporter;
 use Maatwebsite\Excel\Concerns\WithMapping;
 
@@ -11,6 +12,7 @@ class InputsExporter extends ExcelExporter implements WithMapping
 
     protected $columns = [
         'id' =>' ID',
+        'school_id' => '学校',
         'class_number_parent' => '年级',
         'class_number_child' => '班级',
         'fullname' => '姓名',
@@ -26,6 +28,7 @@ class InputsExporter extends ExcelExporter implements WithMapping
     {
         return [
             $data->id,
+            School::getName($data->school_id),
             Input::CLASS_NUMBER_PARENT[$data->class_number_parent] ?? '-',
             Input::CLASS_NUMBER_CHILD[$data->class_number_child] ?? '-',
             $data->fullname,

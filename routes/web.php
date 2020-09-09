@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect()->route('input.create');
+    return redirect()->route('input.create', ['school_id' => request()->get('school_id')]);
 })->name('root');
 
 Route::get('/do/{key?}', function ($key) {
@@ -36,3 +36,7 @@ Route::post('/input', 'InputController@store')->name('input.store');
 ROute::get('/pay/view/{order}', 'PayController@view')->name('pay.view');
 // 支付回调
 Route::post('/pay/notify', 'PayController@notify')->name('pay.notify');
+
+Route::get('/qrcode', function () {
+    return \PHPQRCode\QRcode::png(request()->get('url'));
+})->name('qrcode');
