@@ -43,5 +43,5 @@ Route::get('/qrcode', function () {
 
 
 Route::get('/update', function () {
-    \App\Models\Input::query()->where('school_id', 0)->update(['school_id' => 1])
+    \App\Models\Input::query()->where('school_id', 0)->update(['school_id' => 1]);
 });
