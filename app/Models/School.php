@@ -17,6 +17,6 @@ class School extends Model
 
     public static function getDefaultId()
     {
-        return self::query()->where('is_default', 1)->first();
+        return self::query()->where('is_default', 1)->first()->id;
     }
 }

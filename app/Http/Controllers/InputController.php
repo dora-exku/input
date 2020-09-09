@@ -47,8 +47,7 @@ class InputController extends Controller
         if ($schoolId === 0) {
             $schoolId = School::getDefaultId();
         }
-
-        $school = School::query()->find($schoolId)->first();
+        $school = School::query()->where('id', $schoolId)->first();
 
         return view('input.create', [
             'input' => new Input(),
