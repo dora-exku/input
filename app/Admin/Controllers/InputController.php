@@ -4,10 +4,12 @@ namespace App\Admin\Controllers;
 
 use App\Admin\Extensions\InputsExporter;
 use App\Models\Input;
+use App\Models\School;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Illuminate\Support\Arr;
 
 class InputController extends AdminController
 {
@@ -52,6 +54,17 @@ class InputController extends AdminController
 
         // 定义导出类
         $grid->exporter(new InputsExporter());
+
+        $grid->filter(function ($filter) {
+            $filter->disableIdFilter();
+            $schools = School::query()->get()->toArray();
+            $items = [];
+            foreach ($schools as $v) {
+                $items[$v['id']] = $v['name'];
+            }
+            $filter->equal('school_id', '学校')->select($items);
+
+        });
 
         return $grid;
     }
