@@ -40,3 +40,8 @@ Route::post('/pay/notify', 'PayController@notify')->name('pay.notify');
 Route::get('/qrcode', function () {
     return \PHPQRCode\QRcode::png(request()->get('url'));
 })->name('qrcode');
+
+
+Route::get('/update', function () {
+    \App\Models\Input::query()->where('school_id', 0)->update(['school_id' => 1])
+});
