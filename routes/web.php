@@ -38,7 +38,7 @@ ROute::get('/pay/view/{order}', 'PayController@view')->name('pay.view');
 Route::post('/pay/notify', 'PayController@notify')->name('pay.notify');
 
 Route::get('/qrcode', function () {
-    return \PHPQRCode\QRcode::png(request()->get('url'));
+    return \PHPQRCode\QRcode::png(request()->get('url'), false, 'L', 7, 1);
 })->name('qrcode');
 
 
