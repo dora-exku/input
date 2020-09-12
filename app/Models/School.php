@@ -11,7 +11,7 @@ class School extends Model
     public static function getName($id)
     {
         return Cache::remember('school_name:' . $id, 600, function () use($id) {
-            return self::find($id)->first()->value('name');
+            return self::query()->where('id', $id)->first()->name;
         });
     }
 
