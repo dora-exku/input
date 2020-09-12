@@ -34,20 +34,21 @@ class InputController extends Controller
 //            return redirect()->route('root');
 //        }
         // 检查openid是否存在
-        $openid = $request->session()->get('openid');
-        $code = $request->get('code', null);
-        if (is_null($openid) && is_null($code)) {
-            $wechatService->getAuthUrl();
-        } else if (!is_null($code) && is_null($openid)) {
-            $openid = $wechatService->getUserAccessToken($code);
-            $request->session()->put('openid', $openid);
-        }
 
         $schoolId = $request->get('school_id', 0);
         if ($schoolId === 0) {
             $schoolId = School::getDefaultId();
         }
         $school = School::query()->where('id', $schoolId)->first();
+
+        $openid = $request->session()->get('openid');
+        $code = $request->get('code', null);
+        if (is_null($openid) && is_null($code)) {
+            $wechatService->getAuthUrl($request->url() . '?school_id=' . $schoolId);
+        } else if (!is_null($code) && is_null($openid)) {
+            $openid = $wechatService->getUserAccessToken($code);
+            $request->session()->put('openid', $openid);
+        }
 
         return view('input.create', [
             'input' => new Input(),
