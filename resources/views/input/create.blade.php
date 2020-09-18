@@ -146,8 +146,8 @@
             <div class="form-group">
                 <div class="alert alert-info">
                     保险服务经理: 林经理 <br>
-                    联系电话：<a href="tel:13652759099">13652759099[点击拨打]</a><br>
-                    客服微信：<span style="color:red;">15507734586</span>
+                    联系电话：<a href="tel:15816331912">15816331912[点击拨打]</a><br>
+                    客服微信：<span style="color:red;">ChunTingYQ</span>
                 </div>
             </div>
         </div>
