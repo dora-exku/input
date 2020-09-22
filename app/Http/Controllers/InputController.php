@@ -50,9 +50,8 @@ class InputController extends Controller
             $request->session()->put('openid', $openid);
         }
 
+
         if ($school->is_open) {
-            return view('input.close');
-        } else {
             return view('input.create', [
                 'input' => new Input(),
                 'no' => time() . rand(100000, 999999),
@@ -75,6 +74,8 @@ class InputController extends Controller
                 ],
                 'school' => $school
             ]);
+        } else {
+            return view('input.close');
         }
     }
 
