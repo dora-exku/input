@@ -33,7 +33,10 @@ class SchoolsController extends AdminController
             return '<img src="/qrcode?url=' . $url . '"/>';
         });
         $grid->column('is_default', '是否默认');
-        $grid->column('is_open', '是否启用')->switch();
+        $grid->column('is_open', '是否启用')->switch([
+            'on'  => ['value' => 1, 'text' => '打开', 'color' => 'success'],
+            'off' => ['value' => 0, 'text' => '关闭', 'color' => 'danger'],
+        ]);
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -69,7 +72,10 @@ class SchoolsController extends AdminController
         $form = new Form(new School());
 
         $form->text('name', '学校名称');
-        $form->text('is_open', '是否启用');
+        $form->switch('is_open', '是否启用')->states([
+            'on'  => ['value' => 1, 'text' => '打开', 'color' => 'success'],
+            'off' => ['value' => 0, 'text' => '关闭', 'color' => 'danger'],
+        ]);
         $form->switch('is_default', '是否默认');
 
         return $form;
