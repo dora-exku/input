@@ -50,28 +50,32 @@ class InputController extends Controller
             $request->session()->put('openid', $openid);
         }
 
-        return view('input.create', [
-            'input' => new Input(),
-            'no' => time() . rand(100000, 999999),
-            'input_ip' => ip2long(\request()->ip()),
-            'class_number_parent' => Input::CLASS_NUMBER_PARENT,
-            'class_number_child' => Input::CLASS_NUMBER_CHILD,
-            'price' => [
-                1 => 300,
-                2 => 200,
-                3 => 100,
-                4 => 300,
-                5 => 200,
-                6 => 100,
-                7 => 300,
-                8 => 200,
-                9 => 100,
-                10 => 300,
-                11 => 200,
-                12 => 100,
-            ],
-            'school' => $school
-        ]);
+        if ($school->is_open) {
+            return view('input.close');
+        } else {
+            return view('input.create', [
+                'input' => new Input(),
+                'no' => time() . rand(100000, 999999),
+                'input_ip' => ip2long(\request()->ip()),
+                'class_number_parent' => Input::CLASS_NUMBER_PARENT,
+                'class_number_child' => Input::CLASS_NUMBER_CHILD,
+                'price' => [
+                    1 => 300,
+                    2 => 200,
+                    3 => 100,
+                    4 => 300,
+                    5 => 200,
+                    6 => 100,
+                    7 => 300,
+                    8 => 200,
+                    9 => 100,
+                    10 => 300,
+                    11 => 200,
+                    12 => 100,
+                ],
+                'school' => $school
+            ]);
+        }
     }
 
     /**
