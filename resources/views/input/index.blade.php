@@ -16,7 +16,7 @@
         <div class="alert alert-success text-center"><i class="glyphicon glyphicon-ok"></i> 投保办理成功！</div>
         <div class="alert alert-info" style="font-size: 14px;">
             支付凭证详情可以前往 <span style="color:red;">微信支付-账单详情</span> 里查看 <br>
-            客服微信：<span style="color:red;">ChunTingYQ</span>
+{{--            客服微信：<span style="color:red;">ChunTingYQ</span>--}}
         </div>
     </div>
 </div>

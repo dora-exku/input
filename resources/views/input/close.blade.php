@@ -14,7 +14,7 @@
 <div class="container">
     <div class="content" style="margin-top:20px;font-size: 28px;">
         <div class="alert alert-info" style="font-size: 14px;">
-            该阶段学平险购买已经结束，有需要的家长和需要了解其他险种的家长联系 林经理 <a href="tel:13652759099">13652759099[点击拨打]</a>
+            该阶段学平险购买已经结束，有需要的家长和需要了解其他险种的家长联系 彭经理 <a href="tel:18923601866">18923601866[点击拨打]</a>
         </div>
     </div>
 </div>
